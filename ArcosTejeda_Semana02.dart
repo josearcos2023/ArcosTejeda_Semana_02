@@ -44,6 +44,14 @@ class DCHeroes {
 }
 
 void main() {
+  MarvelHeroes personaje1 = new MarvelHeroes(
+      NombrePila: "Peter Parker", NombrePersonaje: "Spiderman");
+
+  print("Hola mi nombre es " +
+      personaje1.NombrePila +
+      " pero me conocen como su amigable vecino " +
+      personaje1.NombrePersonaje);
+
   Map<String?, String?> personaje01 = {
     "nombrePila": "Bruce Wayne",
     "nombrePersonaje": "Batman"
