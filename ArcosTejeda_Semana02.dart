@@ -17,6 +17,10 @@ class MarvelHeroes {
   String NombrePila = "";
   String NombrePersonaje = "";
   MarvelHeroes({required this.NombrePila, required this.NombrePersonaje});
+  MarvelHeroes.nombrePilaOnly(String NombreHeroe)
+      : this(NombrePila: "", NombrePersonaje: NombreHeroe);
+  MarvelHeroes.nombrePersonajeOnly(String NombrePersonaje)
+      : this(NombrePila: NombrePersonaje, NombrePersonaje: "");
 }
 
 class DCHeroes {
