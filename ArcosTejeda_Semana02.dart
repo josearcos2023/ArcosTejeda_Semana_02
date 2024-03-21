@@ -8,31 +8,31 @@ class Persona {
       apellido=vapellido;
     }
   */
-  Persona.Nuevo(String vnombre) {
+  Persona.nuevo(String vnombre) {
     nombre = vnombre;
   }
 }
 
 class MarvelHeroes {
   String NombrePila = "";
-  String? NombrePersonaje = "";
+  String NombrePersonaje = "";
   MarvelHeroes({required this.NombrePila, required this.NombrePersonaje});
 }
 
 class DCHeroes {
-  String? NombrePila;
-  String? NombrePersonaje;
-  DCHeroes({required this.NombrePila, required this.NombrePersonaje});
+  String? nombrePila;
+  String? nombrePersonaje;
+  DCHeroes({required this.nombrePila, required this.nombrePersonaje});
 
-  DCHeroes.fromDCJson(Map<String?, String?> DCJson) {
-    if (DCJson.containsKey('NombrePila')) {
-      NombrePila = DCJson['NombrePila'];
+  DCHeroes.fromDCJson(Map<String?, String?> dCJson) {
+    if (dCJson.containsKey('nombrePila')) {
+      nombrePila = dCJson['nombrePila'];
     } else {
       print("No tiene nombre");
     }
 
-    if (DCJson.containsKey('NombrePersonaje')) {
-      NombrePersonaje = DCJson['NombrePersonaje'];
+    if (dCJson.containsKey('nombrePersonaje')) {
+      nombrePersonaje = dCJson['nombrePersonaje'];
     } else {
       print("No tiene alias");
     }
@@ -40,11 +40,14 @@ class DCHeroes {
 }
 
 void main() {
-  MarvelHeroes personaje1 = new MarvelHeroes(
-      NombrePila: "Peter Parker", NombrePersonaje: "Spiderman");
+  Map<String?, String?> personaje01 = {
+    "nombrePila": "Bruce Wayne",
+    "nombrePersonaje": "Batman"
+  };
+  Map<String?, String?> personaje02 = {"nombrePila": "Otto Octavio"};
+  Map<String?, String?> personaje03 = {"nombrePersonaje": "Dr Octopus"};
 
-  print("Hola mi nombre es " +
-      personaje1.NombrePila +
-      " pero me conocen como su amigable vecino " +
-      personaje1.NombrePersonaje);
+  DCHeroes nombrePilaNombrePersonaje = DCHeroes.fromDCJson(personaje01);
+  DCHeroes soloNombrePila = DCHeroes.fromDCJson(personaje02);
+  DCHeroes soloNombrePersonaje = DCHeroes.fromDCJson(personaje03);
 }
